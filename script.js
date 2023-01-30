@@ -16,7 +16,6 @@ var includeNumbers = prompt(
   "Do you want to include numbers? Yes or No."
 );
 
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -33,7 +32,7 @@ function generatePassword() {
   let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let numbers = "0123456789";
   let symbols = "!@#$%^&*(){}[]=<>/,.";
-  passwordLength.length = passwordLength.input;
+  let password = "";
   //Adding values to password
   if (includeSymbols = true) {
     password += symbols.charAt(Math.floor(Math.random() * symbols.length));
@@ -49,7 +48,6 @@ function generatePassword() {
   }
   return password;
 }
-
 
 //Making sure password length is between 8 and 128
 if (passwordLength < 8 || passwordLength > 128) {
