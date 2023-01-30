@@ -33,28 +33,31 @@ function generatePassword() {
   let numbers = "0123456789";
   let symbols = "!@#$%^&*(){}[]=<>/,.";
   let password = "";
-
-  if ((includeSymbols = true)) {
-    password += symbols.charAt(Math.floor(Math.random() * symbols.length));
+  for (let i = 0; i < passwordLength; i++) {
+    if (includeSymbols = true) {
+      password += symbols.charAt(Math.floor(Math.random() * symbols.length));
+    }
+    if (includeLowerCase = true) {
+      password += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
+    }
+    if (includeUpperCase = true) {
+      password += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
+    }
+    if (includeNumbers = true) {
+      password += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    }
   }
-  if ((includeLowerCase = true)) {
-    password += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
-  }
-  if ((includeUpperCase = true)) {
-    password += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
-  }
-  if ((includeNumbers = true)) {
-    password += numbers.charAt(Math.floor(Math.random() * numbers.length));
-  }
-  
   return password;
 }
 
 //Making sure password length is between 8 and 128
-if (passwordLength < 8 || passwordLength > 128) {
+if (passwordLength >= 8 && passwordLength <= 128) {
+  password.length = parseInt(passwordLength);
+  console.log(password.length);
+} else if (passwordLength < 8 || passwordLength > 128) {
   prompt("Password must be between 8 and 128 characters.");
-  // console.log(passwordLength);
 }
+
 //checking if user wants to include special characters
 if (
   passwordSymbols.toLowerCase() === "yes" ||
@@ -68,7 +71,9 @@ if (
 ) {
   includeSymbols = false;
 } else {
-  prompt("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
+  prompt(
+    "Please answer with 'yes' or 'y', Or 'no' or 'n'. Special characters will be included."
+  );
 }
 
 //checking if user wants to include lowercase letters
@@ -84,7 +89,9 @@ if (
 ) {
   includeLowerCase = false;
 } else {
-  prompt("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
+  prompt(
+    "Please answer with 'yes' or 'y', Or 'no' or 'n'. Lowercase letters will be included."
+  );
 }
 
 //checking if user wants to include uppercase letters
@@ -100,7 +107,9 @@ if (
 ) {
   includeUpperCase = false;
 } else {
-  prompt("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
+  prompt(
+    "Please answer with 'yes' or 'y', Or 'no' or 'n'. Uppercase letters will be included."
+  );
 }
 
 //checking if user wants to include numbers
@@ -116,7 +125,9 @@ if (
 ) {
   includeNumbers = false;
 } else {
-  prompt("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
+  prompt(
+    "Please answer with 'yes' or 'y', Or 'no' or 'n'. Numbers will be included."
+  );
 }
 
 generatePassword();
