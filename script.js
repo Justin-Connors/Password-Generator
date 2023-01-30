@@ -12,10 +12,10 @@ var includeLowerCase = prompt(
 var includeUpperCase = prompt(
   "Do you want to include uppercase letters? Yes or No."
 );
-var includeNumbers = prompt("Do you want to include numbers? Yes or No.");
-var includeSpecialCharacters = prompt(
-  "Do you want to include special characters? Yes or No."
+var includeNumbers = prompt(
+  "Do you want to include numbers? Yes or No."
 );
+
 
 // Write password to the #password input
 function writePassword() {
@@ -33,22 +33,23 @@ function generatePassword() {
   let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let numbers = "0123456789";
   let symbols = "!@#$%^&*(){}[]=<>/,.";
-  passwordLength.length = Number(passwordLength);
+  passwordLength.length = passwordLength.input;
   //Adding values to password
-  if ((includeSymbols = true)) {
+  if (includeSymbols = true) {
     password += symbols.charAt(Math.floor(Math.random() * symbols.length));
   }
-  if ((includeLowerCase = true)) {
+  if (includeLowerCase = true) {
     password += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
   }
-  if ((includeUpperCase = true)) {
+  if (includeUpperCase = true) {
     password += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
   }
-  if ((includeNumbers = true)) {
+  if (includeNumbers = true) {
     password += numbers.charAt(Math.floor(Math.random() * numbers.length));
   }
   return password;
 }
+
 
 //Making sure password length is between 8 and 128
 if (passwordLength < 8 || passwordLength > 128) {
