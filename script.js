@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
 var passwordLength = prompt(
   "How many characters would you like your password to be? Between 8 and 128."
 );
@@ -12,9 +13,7 @@ var includeLowerCase = prompt(
 var includeUpperCase = prompt(
   "Do you want to include uppercase letters? Yes or No."
 );
-var includeNumbers = prompt(
-  "Do you want to include numbers? Yes or No."
-);
+var includeNumbers = prompt("Do you want to include numbers? Yes or No.");
 
 // Write password to the #password input
 function writePassword() {
@@ -28,30 +27,33 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
+  //Adding values to password
   let lowerCase = "abcdefghijklmnopqrstuvwxyz";
   let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let numbers = "0123456789";
   let symbols = "!@#$%^&*(){}[]=<>/,.";
   let password = "";
-  //Adding values to password
-  if (includeSymbols = true) {
+
+  if ((includeSymbols = true)) {
     password += symbols.charAt(Math.floor(Math.random() * symbols.length));
   }
-  if (includeLowerCase = true) {
+  if ((includeLowerCase = true)) {
     password += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
   }
-  if (includeUpperCase = true) {
+  if ((includeUpperCase = true)) {
     password += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
   }
-  if (includeNumbers = true) {
+  if ((includeNumbers = true)) {
     password += numbers.charAt(Math.floor(Math.random() * numbers.length));
   }
+  
   return password;
 }
 
 //Making sure password length is between 8 and 128
 if (passwordLength < 8 || passwordLength > 128) {
   prompt("Password must be between 8 and 128 characters.");
+  // console.log(passwordLength);
 }
 //checking if user wants to include special characters
 if (
@@ -59,6 +61,7 @@ if (
   passwordSymbols.toLowerCase() === "y"
 ) {
   includeSymbols = true;
+  // console.log(includeSymbols);
 } else if (
   passwordSymbols.toLowerCase() === "no" ||
   passwordSymbols.toLowerCase() === "n"
@@ -74,6 +77,7 @@ if (
   includeLowerCase.toLowerCase() === "y"
 ) {
   includeLowerCase = true;
+  // console.log(includeLowerCase);
 } else if (
   includeLowerCase.toLowerCase() === "no" ||
   includeLowerCase.toLowerCase() === "n"
@@ -89,6 +93,7 @@ if (
   includeUpperCase.toLowerCase() === "y"
 ) {
   includeUpperCase = true;
+  // console.log(includeUpperCase);
 } else if (
   includeUpperCase.toLowerCase() === "no" ||
   includeUpperCase.toLowerCase() === "n"
@@ -104,6 +109,7 @@ if (
   includeNumbers.toLowerCase() === "y"
 ) {
   includeNumbers = true;
+  // console.log(includeNumbers);
 } else if (
   includeNumbers.toLowerCase() === "no" ||
   includeNumbers.toLowerCase() === "n"
