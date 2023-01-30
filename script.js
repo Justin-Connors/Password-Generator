@@ -26,8 +26,8 @@ function generatePassword() {
   let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let numbers = "0123456789";
   let symbols = "!@#$%^&*(){}[]=<>/,.";
-
   passwordLength.length = Number(passwordLength);
+  //Adding values to password
   if (includeSymbols = true) {
     password += symbols.charAt(Math.floor(Math.random() * symbols.length));
   }
@@ -40,14 +40,14 @@ function generatePassword() {
   if (includeNumbers = true) {
     password += numbers.charAt(Math.floor(Math.random() * numbers.length));
   }
-  passwordOptions();
 }
 
 function passwordOptions() {
   //Making sure password length is between 8 and 128
   if (passwordLength < 8 || passwordLength > 128) {
-    alert("Password must be between 8 and 128 characters.");
-    return;
+    prompt("Password must be between 8 and 128 characters.");
+  } else if (passwordLength != Number) {
+    prompt("Password must be a number. and between 8 and 128 characters.");
   }
 
   //checking if user wants to include special characters
@@ -56,18 +56,16 @@ function passwordOptions() {
   } else if (passwordSymbols.toLowerCase() === "no" || passwordSymbols.toLowerCase() === "n") {
     includeSymbols = false;
   } else {
-    alert("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
-    return;
-    }
+    prompt("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
+  }
 
   //checking if user wants to include lowercase letters
   if (includeLowerCase.toLowerCase() === "yes" || includeLowerCase.toLowerCase() === "y") {
     includeLowerCase = true;
-  } else if (includeLowerCase.toLowerCase() === "no" || includeLowerCase.toLowerCase() === "n"){
+  } else if (includeLowerCase.toLowerCase() === "no" || includeLowerCase.toLowerCase() === "n") {
     includeLowerCase = false;
   } else {
-    alert("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
-    return;
+    prompt("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
   }
 
   //checking if user wants to include uppercase letters
@@ -76,23 +74,20 @@ function passwordOptions() {
   } else if (includeUpperCase.toLowerCase() === "no" || includeUpperCase.toLowerCase() === "n") {
     includeUpperCase = false;
   } else {
-    alert("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
-    return; 
+    prompt("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
   }
 
   //checking if user wants to include numbers
-  if (includeNumbers.toLowerCase() === "yes" || includeNumbers.toLowerCase() === "y"){
+  if (includeNumbers.toLowerCase() === "yes" || includeNumbers.toLowerCase() === "y") {
     includeNumbers = true;
   } else if (includeNumbers.toLowerCase() === "no" || includeNumbers.toLowerCase() === "n") {
     includeNumbers = false;
   } else {
-    alert("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
-    return;
+    prompt("Please answer with 'yes' or 'y', Or 'no' or 'n'.");
   }
 
 }
 
+passwordOptions();
 generatePassword();
-
-
 
