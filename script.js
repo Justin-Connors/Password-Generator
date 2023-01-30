@@ -47,6 +47,7 @@ function generatePassword() {
   if ((includeNumbers = true)) {
     password += numbers.charAt(Math.floor(Math.random() * numbers.length));
   }
+  return password;
 }
 
 //Making sure password length is between 8 and 128
