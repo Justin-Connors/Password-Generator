@@ -6,7 +6,6 @@ var includeLowerCase = prompt("Do you want to include lowercase letters? Yes or 
 var includeUpperCase = prompt("Do you want to include uppercase letters? Yes or No.");
 var includeNumbers = prompt("Do you want to include numbers? Yes or No.");
 var includeSpecialCharacters = prompt("Do you want to include special characters? Yes or No.");
-var symbols = "";
 
 
 // Write password to the #password input
@@ -46,10 +45,7 @@ function passwordOptions() {
   //Making sure password length is between 8 and 128
   if (passwordLength < 8 || passwordLength > 128) {
     prompt("Password must be between 8 and 128 characters.");
-  } else if (passwordLength != Number) {
-    prompt("Password must be a number. and between 8 and 128 characters.");
   }
-
   //checking if user wants to include special characters
   if (passwordSymbols.toLowerCase() === "yes" || passwordSymbols.toLowerCase() === "y") {
     includeSymbols = true;
