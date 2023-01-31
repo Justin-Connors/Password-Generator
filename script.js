@@ -7,14 +7,14 @@ var includeUpperCase;
 var includeNumbers;
 var passwordLength;
 
-var allowedValues = {
+const allowedValues = {
   lowerCase : "abcdefghijklmnopqrstuvwxyz",
   upperCase : "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   numbers : "0123456789",
   symbols : "!@#$%^&*(){}[]=<>/,."
 }
 
-var getRandCharFromString = (str) => str.charAt(Math.floor(Math.random() * str.length));
+const getRandCharFromString = (str) => str.charAt(Math.floor(Math.random() * str.length));
 
 var generateBtn = document.querySelector("#generate");
 
