@@ -25,6 +25,7 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   //Adding values to password
   let password = "";
+  passwordLength();
   userInput();
   for (let i = 0; i <= password; i++) {
     if (includeLowerCase == true) {
@@ -43,7 +44,7 @@ function generatePassword() {
   return password;
 }
 
-function userInput() {
+function passwordLength() {
   var passwordLength = prompt(
     "How many characters would you like your password to be? Between 8 and 128."
   );
@@ -54,7 +55,9 @@ function userInput() {
   } else if (passwordLength < 8 || passwordLength > 128) {
     prompt("Password must be between 8 and 128 characters.");
   }
+}
 
+function userInput() {
   if (
     confirm("Do you want to include special characters? Ok / Cancel.") == true
   ) {
