@@ -1,13 +1,20 @@
 // Assignment Code
+passArr = [];
+
 var includeSymbols;
 var includeLowerCase;
 var includeUpperCase;
 var includeNumbers;
+var passwordLength;
 
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numbers = "0123456789";
-var symbols = "!@#$%^&*(){}[]=<>/,.";
+var allowedValues = {
+  lowerCase : "abcdefghijklmnopqrstuvwxyz",
+  upperCase : "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  numbers : "0123456789",
+  symbols : "!@#$%^&*(){}[]=<>/,."
+}
+
+var getRandCharFromString = (str) => str.charAt(Math.floor(Math.random() * str.length));
 
 var generateBtn = document.querySelector("#generate");
 
@@ -24,65 +31,39 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
   //Adding values to password
-  let password = "";
-  passwordLength();
+  var password = "";
   userInput();
-  for (let i = 0; i <= password; i++) {
-    if (includeLowerCase == true) {
-      password += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
-    }
-    if (includeUpperCase == true) {
-      password += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
-    }
-    if (includeNumbers == true) {
-      password += numbers.charAt(Math.floor(Math.random() * numbers.length));
-    }
-    if (includeSymbols == true) {
-      password += symbols.charAt(Math.floor(Math.random() * symbols.length));
-    }
+  password == getRandCharFromString(allowedValues.numbers);
+  password == getRandCharFromString(allowedValues.lowerCase);
+  password == getRandCharFromString(allowedValues.upperCase);
+  password == getRandCharFromString(allowedValues.symbols);
+  for (let i = 0; i < passwordLength; i++) {
+    password += getRandCharFromString(Object.values(allowedValues).join(''));
   }
   return password;
 }
 
-function passwordLength() {
-  var passwordLength = prompt(
-    "How many characters would you like your password to be? Between 8 and 128."
-  );
-    
-  //Making sure password length is between 8 and 128
-  if (passwordLength >= 8 && passwordLength <= 128) {
-    password.length = parseInt(passwordLength);
-  } else if (passwordLength < 8 || passwordLength > 128) {
-    prompt("Password must be between 8 and 128 characters.");
-  }
-}
-
 function userInput() {
-  if (
-    confirm("Do you want to include special characters? Ok / Cancel.") == true
-  ) {
-    includeSymbols = true;
-  } else {
-    includeSymbols = false;
-  }
-  if (
-    confirm("Do you want to include lowercase letters? Ok / Cancel.") == true
-  ) {
-    includeLowerCase = true;
-  } else {
-    includeLowerCase = false;
-  }
-  if (
-    confirm("Do you want to include uppercase letters? Ok / Cancel.") == true
-  ) {
-    includeUpperCase = true;
-  } else {
-    includeUpperCase = false;
-  }
-  if (confirm("Do you want to include numbers? Ok / Cancel.") == true) {
-    includeNumbers = true;
-  } else {
-    includeNumbers = false;
+  passArr = [];
+
+  passwordLength = parseInt(prompt("How many characters would you like your password to be? Between 8 and 128."));
+    
+  //Making sure password length is between 8 and 128 and is a number
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+    prompt("Password must be a number between 8 and 128.");
   }
 
+  if (confirm("Do you want to include special characters? Ok / Cancel.")) {
+    passArr = passArr.concat(allowedValues.symbols);
+  }
+  if (confirm("Do you want to include lowercase letters? Ok / Cancel.")) {
+    passArr = passArr.concat(allowedValues.lowerCase);
+  } 
+  if (confirm("Do you want to include uppercase letters? Ok / Cancel.")) {
+    passArr = passArr.concat(allowedValues.upperCase);
+  } 
+  if (confirm("Do you want to include numbers? Ok / Cancel.")) {
+    passArr = passArr.concat(allowedValues.numbers);
+  } 
+  return true;
 }
