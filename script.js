@@ -33,10 +33,6 @@ function generatePassword() {
   //Adding values to password
   var password = "";
   userInput();
-  password == getRandCharFromString(allowedValues.numbers);
-  password == getRandCharFromString(allowedValues.lowerCase);
-  password == getRandCharFromString(allowedValues.upperCase);
-  password == getRandCharFromString(allowedValues.symbols);
   for (let i = 0; i < passwordLength; i++) {
     password += getRandCharFromString(Object.values(allowedValues).join(''));
   }
@@ -52,18 +48,29 @@ function userInput() {
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     prompt("Password must be a number between 8 and 128.");
   }
-
-  if (confirm("Do you want to include special characters? Ok / Cancel.")) {
+  if (confirm("Do you want to include special characters? Ok / Cancel.") == true) {
     passArr = passArr.concat(allowedValues.symbols);
+    password == getRandCharFromString(allowedValues.symbols);
+  } else {
+    allowedValues.symbols = "";
   }
-  if (confirm("Do you want to include lowercase letters? Ok / Cancel.")) {
+  if (confirm("Do you want to include lowercase letters? Ok / Cancel.") == true) {
     passArr = passArr.concat(allowedValues.lowerCase);
-  } 
-  if (confirm("Do you want to include uppercase letters? Ok / Cancel.")) {
+    password == getRandCharFromString(allowedValues.lowerCase);
+  } else {
+    allowedValues.lowerCase = "";
+  }
+  if (confirm("Do you want to include uppercase letters? Ok / Cancel.") == true) {
     passArr = passArr.concat(allowedValues.upperCase);
-  } 
-  if (confirm("Do you want to include numbers? Ok / Cancel.")) {
+    password == getRandCharFromString(allowedValues.upperCase);
+  } else {
+    allowedValues.upperCase = "";
+  }
+  if (confirm("Do you want to include numbers? Ok / Cancel.") == true) {
     passArr = passArr.concat(allowedValues.numbers);
-  } 
+    password == getRandCharFromString(allowedValues.numbers);
+  }  else {
+    allowedValues.numbers = "";
+  }
   return true;
 }
