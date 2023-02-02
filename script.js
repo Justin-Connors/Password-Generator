@@ -1,6 +1,3 @@
-// Empty password array
-passArr = [];
-
 // global variables
 var includeSymbols;
 var includeLowerCase;
@@ -42,7 +39,7 @@ function generatePassword() {
 }
 
 function userInput() {
-  passArr = [];
+  // passArr = [];
   //asking user for thier desired password length and setting it to a INTEGER value
   passwordLength = parseInt(prompt("How many characters would you like your password to be? Between 8 and 128."));
     
@@ -52,28 +49,24 @@ function userInput() {
   }
   //Checking if user wants symbols, if false set object string to empty string
   if (confirm("Do you want to include special characters? Ok / Cancel.") == true) {
-    passArr = passArr.concat(allowedValues.symbols);
     password == getRandCharFromString(allowedValues.symbols);
   } else {
     allowedValues.symbols = "";
   }
   //checking if user wants lowercase letters, if false set object string to empty string
   if (confirm("Do you want to include lowercase letters? Ok / Cancel.") == true) {
-    passArr = passArr.concat(allowedValues.lowerCase);
     password == getRandCharFromString(allowedValues.lowerCase);
   } else {
     allowedValues.lowerCase = "";
   }
   //checking if user wants uppercase letters, if false set object string to empty string
   if (confirm("Do you want to include uppercase letters? Ok / Cancel.") == true) {
-    passArr = passArr.concat(allowedValues.upperCase);
     password == getRandCharFromString(allowedValues.upperCase);
   } else {
     allowedValues.upperCase = "";
   }
   //checking if user wants numbers, if false set object string to empty string
   if (confirm("Do you want to include numbers? Ok / Cancel.") == true) {
-    passArr = passArr.concat(allowedValues.numbers);
     password == getRandCharFromString(allowedValues.numbers);
   }  else {
     allowedValues.numbers = "";
