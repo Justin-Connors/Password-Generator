@@ -39,7 +39,6 @@ function generatePassword() {
 }
 
 function userInput() {
-  // passArr = [];
   //asking user for thier desired password length and setting it to a INTEGER value
   passwordLength = parseInt(prompt("How many characters would you like your password to be? Between 8 and 128."));
     
