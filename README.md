@@ -1,7 +1,7 @@
 # Challenge-3-PSWRD-GEN
 
 # How to use this
-Go through the prompts and do as they say at the end of the selections a password will be generated with the inputs provided.
+Go through the prompts, input a number between 8 - 128, then Yes or Cancel(No) for the rest of the prompts
 
 # Resources
 Stack overflow
