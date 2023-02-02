@@ -1,8 +1,4 @@
 // global variables
-var includeSymbols;
-var includeLowerCase;
-var includeUpperCase;
-var includeNumbers;
 var passwordLength;
 
 // global const with password characters
