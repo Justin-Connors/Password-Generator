@@ -1,4 +1,3 @@
-// global variables
 var passwordLength;
 
 // global const with password characters
@@ -42,29 +41,29 @@ function userInput() {
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     prompt("Password must be a number between 8 and 128.");
   }
-  //Checking if user wants symbols, if false set object string to empty string
+  //Checking if user wants symbols, if false remove property from object
   if (confirm("Do you want to include special characters? Ok / Cancel.") == true) {
-    password == getRandCharFromString(allowedValues.symbols);
+    // do nothing
   } else {
-    allowedValues.symbols = "";
+    delete allowedValues.symbols;
   }
-  //checking if user wants lowercase letters, if false set object string to empty string
+  //checking if user wants lowercase letters, if false remove property from object
   if (confirm("Do you want to include lowercase letters? Ok / Cancel.") == true) {
-    password == getRandCharFromString(allowedValues.lowerCase);
+    // do nothing
   } else {
-    allowedValues.lowerCase = "";
+    delete allowedValues.lowerCase;
   }
-  //checking if user wants uppercase letters, if false set object string to empty string
+  //checking if user wants uppercase letters, if false remove property from object
   if (confirm("Do you want to include uppercase letters? Ok / Cancel.") == true) {
-    password == getRandCharFromString(allowedValues.upperCase);
+    // do nothing
   } else {
-    allowedValues.upperCase = "";
+    delete allowedValues.upperCase;
   }
-  //checking if user wants numbers, if false set object string to empty string
+  //checking if user wants numbers, if false remove property from object
   if (confirm("Do you want to include numbers? Ok / Cancel.") == true) {
-    password == getRandCharFromString(allowedValues.numbers);
+    // do nothing
   }  else {
-    allowedValues.numbers = "";
+    delete allowedValues.numbers;
   }
 
   return true;
